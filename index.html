@@ -1,0 +1,27 @@
+<html>
+<style type="text/css">
+* {margin:0;}
+</style>
+<body>
+	<div id="minhadiv" style="background-color:green;width:100%;height:100%;posticion:absolute;top:0;left:0;color:white;opacity:0">
+		<h1>minha pagina mostrando o que desejo na tela</h1>
+	</div>
+	<script>
+	var  opaca = false;
+	var div = document.getElementById("minhadiv")
+	setInterval(()=>{
+		if (opaca) {
+			console.log("playContent")
+			div.style.opacity = 0;
+			parent.postMessage("playContent","*")
+			opaca=false
+		} else {
+			console.log("pauseContent")
+			div.style.opacity = 1;
+			parent.postMessage("pauseContent","*")
+			opaca=true
+		}
+	},30000)
+	</script>
+</body>
+</html>
